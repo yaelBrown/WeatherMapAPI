@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://127.0.0.1:49844/weather_map.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required Meta Tags -->
+    
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="">
+    <meta name="author" content="Yael Brown">
+    <meta name="copyright" content="">
+
+    <!-- Google Fonts -->
+    <link href="./index_files/css" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./index_files/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./index_files/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- Mapbox GL JS -->
+    <script src="./index_files/mapbox-gl.js"></script>
+    <link href="./index_files/mapbox-gl.css" rel="stylesheet">
+
+    <title>Weather Map API project </title>
+
+    <!-- Style -->
+    <link rel="stylesheet" href="./index_files/weather_map.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="app">
+        <div class="header">
+          <h1>weatherly</h1>
+          <p>(my attempt of a cheesey startup name)</p>
+        </div>
+
+        <!-- City input -->
+        <input type="text" id="input-city" name="input-city" placeholder="City" tabindex="1" class="form-control no-border">
+
+        <div id="showWeather">this is working</div>
+        <!-- Name of city -->
+        <div class="cityNameDiv">
+          <h1 id="cityName"></h1>
+          <div id="weatherIcon"></div>
+        </div>
+        <div id="fly">Fly</div>
+
+        <!-- mapBox boilerplate -->
+        <div id="map" class="mapboxgl-map"><div class="mapboxgl-canary" style="visibility: hidden;"></div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" style="position: absolute; width: 970px; height: 450px;" width="1940" height="900"></canvas></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener nofollow" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib"><div class="mapboxgl-ctrl-attrib-inner"><a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> <a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=mapbox&amp;id=streets-v9&amp;access_token=pk.eyJ1IjoieWFlbGJyb3duIiwiYSI6ImNqemVidGhsMjAwc2szZW8wbW51bTFwN2gifQ.Xps4U82N0BsZxh79qcYdRw" target="_blank" rel="noopener nofollow">Improve this map</a></div></div></div></div></div>
+
+        <div class="threeDay">
+          <img src="./index_files/weather.svg">
+          <h4 class="">Three Day Forecast </h4>
+          <img src="./index_files/weather.svg">
+        </div>
+
+        <!-- Weather Cards -->
+        <div class="cards" id="cards">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title" id="summary">Today</h5>
+              <img class="card-img" src="./index_files/day.svg">
+              <h6 class="card-subtitle mb-2 text-muted">Partly Cloudy</h6>
+              <p class="card-text">100 F<br></p>
+              <p class="card-text"><small>High / Low: </small><br>
+              96 / 87<br></p>
+              <p class="card-text"><small>Wind Speed</small><br>
+              <img class="windIcon" src="./index_files/windVector.svg">6 <small>mph</small><br></p>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title" id="summary">Today</h5>
+              <img class="card-img" src="./index_files/day.svg">
+              <h6 class="card-subtitle mb-2 text-muted">Partly Cloudy</h6>
+              <p class="card-text">100 F<br></p>
+              <p class="card-text"><small>High / Low: </small><br>
+              96 / 87<br></p>
+              <p class="card-text"><small>Wind Speed</small><br>
+              <img class="windIcon" src="./index_files/windVector.svg">6 <small>mph</small><br></p>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title" id="summary">Today</h5>
+              <img class="card-img" src="./index_files/day.svg">
+              <h6 class="card-subtitle mb-2 text-muted">Partly Cloudy</h6>
+              <p class="card-text">100 F<br></p>
+              <p class="card-text"><small>High / Low: </small><br>
+              96 / 87<br></p>
+              <p class="card-text"><small>Wind Speed</small><br>
+              <img class="windIcon" src="./index_files/windVector.svg">6 <small>mph</small><br></p>
+            </div>
+          </div>
+
+        </div> <!-- cards -->
+      </div> <!-- app -->
+    </div> <!-- container -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./index_files/jquery-2.2.4.js"></script>
+
+    <script src="./index_files/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <script src="./index_files/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Load Key -->
+    <script src="./index_files/keys.js"></script>
+
+    <!-- mapbox utils -->
+    <script src="./index_files/mapbox-utils.js"></script>
+
+    <!-- weather map app -->
+    <script src="./index_files/weather_map.js"></script>
+  <!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function() {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					head.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					head.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function(msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			console.log('Live reload enabled.');
+		})();
+	}
+	// ]]>
+</script>
+
+</body></html>
